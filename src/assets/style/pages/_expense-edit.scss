@@ -1,0 +1,54 @@
+.expense-edit {
+    max-width: 550px;
+    background-color: $secondary-bg-clr;
+    border-radius: 10px;
+    margin: 40px auto;
+    padding: 1em;
+
+    h2 {
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        label {
+            font-size: 0.875rem;
+            margin-block-start: 1em;
+        }
+
+        input, select {
+            border: 1px solid $gray1;
+            border-radius: $small-br;
+            padding-block: 0.4em;
+            outline-style: none;
+        }
+
+        .btn-container {
+            align-self: end;
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+            font-size: 0.875rem;
+            margin-top: 15px;
+
+            button {
+                padding: 0.3em 0.6em;
+                border-radius: $small-br;
+                border: 1px solid $main-clr;
+
+                &.save-btn {
+                    background-color: $main-clr;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

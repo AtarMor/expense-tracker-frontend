@@ -1,0 +1,10 @@
+.add-btn {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    background-color: $main-clr;
+    padding: 1em;
+    border-radius: $big-br;
+    margin-inline-start: 15px;
+    font-size: 1rem;
+}

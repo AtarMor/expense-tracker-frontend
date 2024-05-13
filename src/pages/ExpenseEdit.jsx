@@ -68,17 +68,17 @@ export function ExpenseEdit() {
                         <option>{category}</option>
                     )}
                 </select>
-                <label htmlFor="desc">Description</label>
+                <label htmlFor="description">Description</label>
                 <input type="text"
-                    name="desc"
-                    id="desc"
+                    name="description"
+                    id="description"
                     value={expenseToEdit.description}
                     onChange={handleChange}
                 />
 
                 <div className="btn-container">
-                    <button>{expenseToEdit._id ? 'Save' : 'Add'}</button>
-                    <Link to="/">Cancel</Link>
+                    <button className="save-btn">{expenseToEdit._id ? 'Save' : 'Add'}</button>
+                    <Link to="/"><button className="cancel-btn">Cancel</button></Link>
                 </div>
             </form>
         </section>

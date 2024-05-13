@@ -1,8 +1,21 @@
-.expense-titles {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(auto, 1fr));
+.expense-list {
+    background-color: $secondary-bg-clr;
+    border-radius: $big-br;
+    margin-inline-end: 15px;
+    padding-block-end: 30px;
 
-    h3 {
-        font-weight: bold;
+    li {
+        border-bottom: 1px solid $gray1;
+    }
+
+    .expense-titles {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(auto, 1fr)) minmax(auto,2fr) minmax(auto, 1fr);
+        padding: 0.6em 1em;
+
+        h3 {
+            font-weight: bold;
+            font-size: 1rem;
+        }
     }
 }

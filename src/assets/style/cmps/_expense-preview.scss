@@ -1,7 +1,43 @@
 .expense-preview {
     article {
         display: grid;
-        grid-template-columns: repeat(5, minmax(auto, 1fr));
+        grid-template-columns: repeat(2, minmax(auto, 1fr)) minmax(auto, 2fr) minmax(auto, 1fr);
+        align-items: center;
 
+        position: relative;
+        padding: 0.4em 1em;
+
+        h3 {
+            font-size: 1rem;
+            margin-inline-end: 0.5em;
+            @include overflow3Dots()
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 5px;
+            position: absolute;
+            right: 10px;
+            opacity: 0;
+            transition: 300ms;
+
+            button {
+                width: 22px;
+                height: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: $small-br;
+                font-size: 0.7rem;
+
+                &:hover {
+                    background-color: $gray1;
+                }
+            }
+        }
+
+        &:hover .btn-container {
+            opacity: 1;
+        }
     }
 }

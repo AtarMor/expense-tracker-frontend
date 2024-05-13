@@ -31,8 +31,10 @@ export function ExpenseIndex() {
     }
 
     if(!expenses.length) return <div>Loading...</div>
-    return <section className="expense-index">
-        <Link to={'/expense/edit/'}><button>Add new expense</button></Link>
+    return <section className="expense-index main-layout">
+        <Link to={'/expense/edit/'}><button className="add-btn solid plus">Add</button></Link>
+        <div>filter</div>
+        <div>navbar</div>
         <ExpenseList expenses={expenses} onRemoveExpense={onRemoveExpense}/>
     </section>
 }

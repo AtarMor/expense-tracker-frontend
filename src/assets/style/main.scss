@@ -1,7 +1,7 @@
 // SETUP
-// @import 'setup/typography';
-// @import 'setup/vars';
-// @import 'setup/mixins';
+@import 'setup/typography';
+@import 'setup/vars';
+@import 'setup/mixins';
 
 // BASICS
 @import 'basics/base';
@@ -9,6 +9,8 @@
 @import 'basics/layout';
 
 // PAGES
+@import 'pages/expense-index';
+@import 'pages/expense-edit';
 
 // COMPONENTS
 @import 'cmps/expense-list';

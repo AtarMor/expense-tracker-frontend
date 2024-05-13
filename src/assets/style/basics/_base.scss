@@ -4,6 +4,8 @@
 
 html {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: $main-bg-clr;
+  color: $main-font-clr;
 }
 
 body,
@@ -24,6 +26,8 @@ button {
   cursor: pointer;
   border: none;
   font-family: inherit;
+  background: transparent;
+  color: $main-font-clr;
 }
 
 img {
