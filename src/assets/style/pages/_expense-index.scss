@@ -3,17 +3,22 @@
     a {
         display: flex;
         align-items: center;
-        
-            .add-btn {
-                align-self: end;
-                display: flex;
-                gap: 5px;
-                align-items: baseline;
-                background-color: $main-clr;
-                padding: .8em 1em;
-                border-radius: $big-br;
-                margin-inline-start: 15px;
-                font-size: 1rem;
+
+        .add-btn {
+            align-self: end;
+            display: flex;
+            gap: 5px;
+            align-items: baseline;
+            background-color: $main-clr;
+            padding: .9em 1.2em;
+            border-radius: $big-br;
+            margin-inline-start: 15px;
+            font-size: 1rem;
+
+            &:hover {
+                box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+                    0 4px 8px 3px rgba(60, 64, 67, 0.149);
             }
         }
     }
+}

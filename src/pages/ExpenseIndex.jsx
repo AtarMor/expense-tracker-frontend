@@ -3,6 +3,7 @@ import { expenseService } from "../services/expense.service"
 import { ExpenseList } from "../cmps/ExpenseList"
 import { Link } from "react-router-dom"
 import { ExpenseFilter } from "../cmps/ExpenseFilter"
+import { SideBar } from "../cmps/SideBar"
 
 export function ExpenseIndex() {
     const [expenses, setExpenses] = useState([])
@@ -38,7 +39,7 @@ export function ExpenseIndex() {
     return <section className="expense-index main-layout">
         <Link to={'/expense/edit/'}><button className="add-btn solid plus">Add</button></Link>
         <ExpenseFilter filterBy={filterBy} setFilterBy={setFilterBy} />
-        <div>navbar</div>
+        <SideBar />
         <ExpenseList
             expenses={expenses}
             onRemoveExpense={onRemoveExpense}
