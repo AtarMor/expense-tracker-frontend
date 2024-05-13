@@ -5,7 +5,12 @@ const EXPENSES_KEY = 'expensesDB'
 _createExpenses()
 
 export const expenseService = {
-    query
+    query,
+    getById,
+    remove,
+    save,
+    getEmptyExpense,
+    getExpenseCategories
 }
 
 async function query() {
@@ -15,6 +20,46 @@ async function query() {
     } catch (err) {
         console.log('Had issues getting expenses', err)
     }
+}
+
+function getById(expenseId) {
+    return storageService.get(EXPENSES_KEY, expenseId)
+}
+
+function remove(expenseId) {
+    return storageService.remove(EXPENSES_KEY, expenseId)
+}
+
+function save(expense) {
+    if (expense._id) {
+        return storageService.put(EXPENSES_KEY, expense)
+    } else {
+        return storageService.post(EXPENSES_KEY, expense)
+    }
+}
+
+function getEmptyExpense() {
+    return {
+        amount: 0,
+        category: '',
+        date: '',
+        description: ''
+    }
+}
+
+function getExpenseCategories() {
+    return [
+        "Food",
+        "Utilities",
+        "Transportation",
+        "Entertainment",
+        "Clothing",
+        "Healthcare",
+        "Rent/Mortgage",
+        "Insurance",
+        "Education",
+        "Shopping"
+      ]
 }
 
 function _createExpenses() {

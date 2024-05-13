@@ -1,6 +1,6 @@
 import { ExpensePreview } from "./ExpensePreview"
 
-export function ExpenseList({ expenses }) {
+export function ExpenseList({ expenses, onRemoveExpense }) {
     return <ul className="expense-list clean-list">
         <li className="expense-titles">
             <h3>Category</h3>
@@ -10,7 +10,7 @@ export function ExpenseList({ expenses }) {
         </li>
         {expenses.map(expense => {
             return <li className="expense-preview" key={expense._id}>
-                <ExpensePreview expense={expense} />
+                <ExpensePreview expense={expense} onRemoveExpense={onRemoveExpense}/>
             </li>
         }
         )}

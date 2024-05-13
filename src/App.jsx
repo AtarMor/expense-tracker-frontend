@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 import { ExpenseIndex } from './pages/ExpenseIndex'
+import { ExpenseEdit } from './pages/ExpenseEdit'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <main>
+    <Router>
       <h1>Expense Tracker</h1>
-      <ExpenseIndex/>
-    </main>
+      <main>
+        <Routes>
+          <Route element={<ExpenseIndex />} path="/" />
+          <Route element={<ExpenseEdit />} path="/expense/edit" />
+          <Route element={<ExpenseEdit />} path="/expense/edit/:expenseId" />
+        </Routes>
+      </main>
+    </Router>
   )
 }
 
