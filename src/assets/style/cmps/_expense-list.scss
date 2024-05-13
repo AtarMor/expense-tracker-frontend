@@ -2,7 +2,7 @@
     background-color: $secondary-bg-clr;
     border-radius: $big-br;
     margin-inline-end: 15px;
-    padding-block-end: 30px;
+    padding-block-end: 30px;  
 
     li {
         border-bottom: 1px solid $gray1;
@@ -15,7 +15,12 @@
 
         h3 {
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.875rem;
         }
+    }
+
+    .no-expenses-msg {
+        text-align: center;
+        padding-block-start: 1em;
     }
 }

@@ -8,14 +8,14 @@
         padding: 0.4em 1em;
 
         h3 {
-            font-size: 1rem;
+            font-size: 0.875rem;
             margin-inline-end: 0.5em;
             @include overflow3Dots()
         }
 
         .btn-container {
             display: flex;
-            gap: 5px;
+            gap: 2px;
             position: absolute;
             right: 10px;
             opacity: 0;
@@ -29,6 +29,7 @@
                 justify-content: center;
                 border-radius: $small-br;
                 font-size: 0.7rem;
+                color: $gray3;
 
                 &:hover {
                     background-color: $gray1;

@@ -64,6 +64,7 @@ export function ExpenseEdit() {
                     value={expenseToEdit.category}
                     onChange={handleChange}
                 >
+                    <option></option>
                     {expenseCategories.map(category =>
                         <option>{category}</option>
                     )}
@@ -74,6 +75,7 @@ export function ExpenseEdit() {
                     id="description"
                     value={expenseToEdit.description}
                     onChange={handleChange}
+                    autoComplete="off"
                 />
 
                 <div className="btn-container">

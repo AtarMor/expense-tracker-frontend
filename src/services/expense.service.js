@@ -10,12 +10,23 @@ export const expenseService = {
     remove,
     save,
     getEmptyExpense,
-    getExpenseCategories
+    getExpenseCategories,
+    getDefaultFilter
 }
 
-async function query() {
+async function query(filterBy = {}) {
     try {
-        const expenses = await storageService.query(EXPENSES_KEY)
+        let expenses = await storageService.query(EXPENSES_KEY)
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            expenses = expenses.filter(e => regex.test(e.category) || regex.test(e.description))
+        }
+        if (filterBy.category) {
+            expenses = expenses.filter(e => e.category === filterBy.category)
+        }
+        if (filterBy.startDate) {
+            expenses = expenses.filter(e => e.date >= filterBy.startDate)
+        }
         return expenses
     } catch (err) {
         console.log('Had issues getting expenses', err)
@@ -47,6 +58,10 @@ function getEmptyExpense() {
     }
 }
 
+function getDefaultFilter() {
+    return { txt: '', category: '', startDate: '', endDate: '' }
+}
+
 function getExpenseCategories() {
     return [
         "Food",
@@ -59,7 +74,7 @@ function getExpenseCategories() {
         "Insurance",
         "Education",
         "Shopping"
-      ]
+    ]
 }
 
 function _createExpenses() {

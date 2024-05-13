@@ -1,0 +1,28 @@
+.expense-filter {
+    padding-inline-end: 15px;
+
+    fieldset {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        border: 1px solid $gray2;
+        font-size: 0.875rem;
+
+        .search-by-txt {
+            position: relative;
+
+            label {
+                position: absolute;
+                right: 7px;
+                top: 0.4em;
+                color: $gray3;
+            }
+        }
+
+        input,
+        select {
+            padding: 0.3em 0.6em;
+        }
+    }
+
+}

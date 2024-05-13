@@ -1,10 +1,19 @@
-.add-btn {
-    display: flex;
-    gap: 5px;
-    align-items: baseline;
-    background-color: $main-clr;
-    padding: 1em;
-    border-radius: $big-br;
-    margin-inline-start: 15px;
-    font-size: 1rem;
-}
+.expense-index {
+
+    a {
+        display: flex;
+        align-items: center;
+        
+            .add-btn {
+                align-self: end;
+                display: flex;
+                gap: 5px;
+                align-items: baseline;
+                background-color: $main-clr;
+                padding: .8em 1em;
+                border-radius: $big-br;
+                margin-inline-start: 15px;
+                font-size: 1rem;
+            }
+        }
+    }
