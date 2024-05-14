@@ -3,6 +3,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
     gap: 15px;
+
     >* {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
@@ -28,17 +29,17 @@
 
     .total-expenses {
         h2 {
-            color: $expense-clr                    
+            color: $expense-clr
         }
     }
 
     .total-transactions {
         h2 {
-            color: $transaction-clr                    
+            color: $transaction-clr
         }
     }
 
-    .categories-chart-container {
+    .chart-container {
         grid-column: 1 / -1;
 
         display: flex;
@@ -46,7 +47,11 @@
 
         background-color: $secondary-bg-clr;
         border-radius: $big-br;
-        padding: 30px 40px;
+        padding: 20px 40px 0;
+
+        h3 {
+            font-size: 1rem;
+        }
 
         @include for-medium-layout {
             gap: 30px;
@@ -54,11 +59,39 @@
 
         .categories-chart {
             align-self: center;
-            width: 600px;
+            width: 550px;
 
             @include for-normal-layout {
                 width: 400px;
+                padding-block-end: 20px;
+            }
+        }
+
+        .months-chart {
+            height: 500px;
+            padding: 20px;
+
+            @include for-large-layout {
+                height: 350px;
+            }
+
+            @include for-small-layout {
+                height: 250px;
+            }
+
+            @include for-small-layout {
+                padding: 0;
             }
         }
     }
+}
+
+.empty-container {
+    display: flex;
+    padding-block-start: 50px;
+    justify-content: center;
+    background-color: $secondary-bg-clr;
+    border-radius: $big-br;
+
+    height: 100vh;
 }

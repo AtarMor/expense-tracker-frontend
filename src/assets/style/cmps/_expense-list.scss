@@ -3,6 +3,7 @@
     border-radius: $big-br;
     margin-inline-end: 15px;
     padding-block-end: 30px;
+    height: 100vh;
 
     @include for-medium-layout {
         margin-inline-end: 0;

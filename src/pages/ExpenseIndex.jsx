@@ -53,10 +53,14 @@ export function ExpenseIndex({ user, setUser }) {
         <Link to={'/expense/edit/'}><button disabled={!user} className="add-btn solid plus">Add</button></Link>
         <ExpenseFilter filterBy={filterBy} setFilterBy={setFilterBy} />
         <SideBar user={user} setUser={setUser} />
-        <ExpenseList
+        {user ? <ExpenseList
             expenses={expenses}
             onRemoveExpense={onRemoveExpense}
             isLoading={isLoading}
-        />
+        /> :
+            <div className="empty-container">
+                <h3>To access and manage your data, please log in.</h3>
+            </div>
+        }
     </section>
 }

@@ -2,7 +2,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     debounce,
-    getChartColors
+    getChartColors,
+    getMonthsNames
 }
 
 function saveToStorage(key, value) {
@@ -37,4 +38,8 @@ function getChartColors() {
         'rgba(29, 104, 32, 1)',
         'rgba(139, 195, 74, 1)',
     ]
+}
+
+function getMonthsNames() {
+    return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 }

@@ -10,7 +10,7 @@ The Personal Expense Tracker Application is a tool designed to help individuals 
 - **Edit Expense:** Users can edit existing expenses to update details like amount, category, and description.
 - **Delete Expense:** Users can delete expenses they no longer need.
 
-### Categories and Budgets
+### Categories
 - **Categorize Expenses:** Users can categorize expenses into predefined categories such as Food, Transportation, Utilities, Entertainment, etc.
 
 ### Visualization

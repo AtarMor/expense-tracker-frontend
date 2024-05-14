@@ -53,6 +53,13 @@ export function CategoriesChart({ expenses, totalExpenses }) {
             legend: {
                 position,
             },
+            tooltip: {
+                callbacks: {
+                    label: function () {
+                        return '';
+                    }
+                }
+            }
         },
     }
 
