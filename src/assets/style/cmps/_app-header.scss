@@ -1,5 +1,17 @@
 .app-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 1em;
+
+    .toggle-menu-btn {
+        font-size: 1.2rem;
+        display: none;
+
+        @include for-medium-layout {
+            display: inline;
+        }
+    }
 
     h1 {
         font-weight: bold;

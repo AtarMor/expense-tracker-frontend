@@ -37,6 +37,7 @@ export function ExpenseIndex() {
     }
 
     return <section className="expense-index main-layout">
+
         <Link to={'/expense/edit/'}><button className="add-btn solid plus">Add</button></Link>
         <ExpenseFilter filterBy={filterBy} setFilterBy={setFilterBy} />
         <SideBar />

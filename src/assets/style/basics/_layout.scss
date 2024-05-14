@@ -2,4 +2,32 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 15px;
+
+  @include for-medium-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include for-medium-layout {
+  body.menu-open .side-bar {
+    transform: translateX(0);
+    box-shadow: -4px 0px 20px rgb(0 0 0 / 30%);
+  }
+
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+
+  transition: opacity 0.6s;
+}
+
+body.menu-open .backdrop {
+  opacity: 1;
+  pointer-events: auto;
 }

@@ -1,3 +1,28 @@
+// Layout mixins
+@mixin for-normal-layout {
+    @media (max-width: $break-normal) {
+      @content;
+    }
+  }
+  
+  @mixin for-medium-layout {
+    @media (max-width: $break-medium) {
+      @content;
+    }
+  }
+  
+  @mixin for-small-layout {
+    @media (max-width: $break-small) {
+      @content;
+    }
+  }
+  
+  @mixin for-mobile-layout {
+    @media (max-width: $break-mobile) {
+      @content;
+    }
+  }
+
 @mixin overflow3Dots() {
     text-overflow: ellipsis;
     overflow: hidden;

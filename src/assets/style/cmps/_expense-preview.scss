@@ -7,6 +7,18 @@
         position: relative;
         padding: 0.4em 1em;
 
+        @include for-normal-layout {
+            grid-template-columns: repeat(4, minmax(auto, 1fr));
+        }
+
+        @include for-small-layout {
+            grid-template-columns: repeat(4, minmax(70px, 1fr));
+        }
+
+        @include for-mobile-layout {
+            grid-template-columns: repeat(4, minmax(20px, 1fr));
+        }
+
         h3 {
             font-size: 0.875rem;
             margin-inline-end: 0.5em;
@@ -20,6 +32,10 @@
             right: 10px;
             opacity: 0;
             transition: 300ms;
+
+            @include for-medium-layout {
+                opacity: 1;
+            }
 
             button {
                 width: 22px;

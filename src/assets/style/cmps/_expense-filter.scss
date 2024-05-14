@@ -1,6 +1,15 @@
 .expense-filter {
     padding-inline-end: 15px;
 
+    @include for-medium-layout {
+        padding-inline-start: 15px;
+    }
+
+    @include for-mobile-layout {
+        display: flex;
+        justify-content: center;
+    }
+
     fieldset {
         display: flex;
         align-items: baseline;
@@ -8,14 +17,30 @@
         border: 1px solid $gray2;
         font-size: 0.875rem;
 
+        @include for-small-layout {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+
+        @include for-mobile-layout {
+            display: grid;
+            grid-template-columns: auto;
+            width: 300px;
+        }
+
         .search-by-txt {
             position: relative;
+            width: 100%;
 
             label {
                 position: absolute;
                 right: 7px;
                 top: 0.4em;
                 color: $gray3;
+            }
+
+            input {
+                width: 100%;
             }
         }
 

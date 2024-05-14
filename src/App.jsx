@@ -6,10 +6,15 @@ import { AppHeader } from './cmps/AppHeader'
 import { Dashboard } from './pages/Dashboard'
 
 function App() {
+  function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
   return (
     <Router>
       <main>
-      <AppHeader/>
+      <div className="backdrop" onClick={onToggleMenu}></div>
+
+      <AppHeader onToggleMenu={onToggleMenu}/>
         <Routes>
           <Route element={<ExpenseIndex />} path="/" />
           <Route element={<ExpenseEdit />} path="/expense/edit" />

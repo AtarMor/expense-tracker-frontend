@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
-import { expenseService } from "../services/expense.service"
+import { utilService } from '../services/util.service'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export function CategoriesChart({ expenses, totalExpenses }) {
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
+    const [position, setPosition] = useState('right')
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize)
+        viewportWidth < 600 ? setPosition('bottom') : setPosition('right')
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [viewportWidth])
+
+    function handleResize() {
+        setViewportWidth(window.innerWidth)
+    }
+
     const categoryPercentages = {}
     expenses.forEach(expense => {
         if (!categoryPercentages[expense.category]) {
@@ -23,18 +39,7 @@ export function CategoriesChart({ expenses, totalExpenses }) {
         datasets: [
             {
                 data: Object.values(categoryPercentages),
-                backgroundColor: [
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(156, 39, 176, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(63, 81, 181, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(29, 104, 32, 1)',
-                    'rgba(139, 195, 74, 1)',
-                ],
+                backgroundColor: utilService.getChartColors(),
                 borderWidth: 1,
                 borderColor: 'white'
             },
@@ -46,7 +51,7 @@ export function CategoriesChart({ expenses, totalExpenses }) {
             responsive: true,
 
             legend: {
-                position: 'right',
+                position,
             },
         },
     }
