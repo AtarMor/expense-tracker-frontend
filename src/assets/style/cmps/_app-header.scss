@@ -13,10 +13,14 @@
         }
     }
 
+    .logo {
+        width: 30px;
+    }
+
     h1 {
         font-weight: bold;
         font-size: 1.5rem;
-        background: linear-gradient(to right, #2961ee 0%, #3dc0f4 20%);
+        background: linear-gradient(to right, #2961ee 0%, #3dc0f4 60%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
