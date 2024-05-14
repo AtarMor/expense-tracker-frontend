@@ -4,6 +4,7 @@ import { ExpenseList } from "../cmps/ExpenseList"
 import { Link } from "react-router-dom"
 import { ExpenseFilter } from "../cmps/ExpenseFilter"
 import { SideBar } from "../cmps/SideBar"
+import { socketService, SOCKET_EMIT_REFRESH } from "../services/socket.service"
 
 export function ExpenseIndex({ user, setUser }) {
     const [expenses, setExpenses] = useState([])
@@ -13,6 +14,13 @@ export function ExpenseIndex({ user, setUser }) {
     useEffect(() => {
         loadExpenses()
     }, [filterBy, user])
+
+    useEffect(() => {
+        socketService.on(SOCKET_EMIT_REFRESH, loadExpenses)
+        return () => {
+            socketService.off(SOCKET_EMIT_REFRESH, loadExpenses)
+        }
+    }, [])
 
     async function loadExpenses() {
         try {

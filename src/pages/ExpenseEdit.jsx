@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { expenseService } from "../services/expense.service"
 import { useEffect, useState } from "react"
+import { socketService } from "../services/socket.service"
 
 export function ExpenseEdit() {
     const navigate = useNavigate()
@@ -34,6 +35,7 @@ export function ExpenseEdit() {
         try {
             await expenseService.save(expenseToEdit)
             console.log('Expense saved successfully')
+            socketService.refresh()
             navigate('/')
         } catch (err) {
             console.log('Had issues saving expense', err)

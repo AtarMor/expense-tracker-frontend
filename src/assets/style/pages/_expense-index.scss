@@ -5,6 +5,7 @@
         align-items: center;
 
         .add-btn {
+            z-index: 1;
             align-self: end;
             display: flex;
             gap: 5px;

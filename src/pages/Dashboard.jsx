@@ -5,6 +5,7 @@ import { SideBar } from "../cmps/SideBar";
 
 import { expenseService } from "../services/expense.service";
 import { useNavigate } from "react-router-dom";
+import { SOCKET_EMIT_REFRESH, socketService } from "../services/socket.service";
 
 export function Dashboard({ user, setUser }) {
     const [expenses, setExpenses] = useState([])
@@ -15,6 +16,13 @@ export function Dashboard({ user, setUser }) {
     useEffect(() => {
         loadExpenses()
     }, [user])
+
+    useEffect(() => {
+        socketService.on(SOCKET_EMIT_REFRESH, loadExpenses)
+        return () => {
+            socketService.off(SOCKET_EMIT_REFRESH, loadExpenses)
+        }
+    }, [])
 
     async function loadExpenses() {
         try {
