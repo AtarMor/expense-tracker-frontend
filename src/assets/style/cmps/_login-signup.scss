@@ -1,0 +1,72 @@
+.welcome-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid $gray2;
+    margin-inline: 15px;
+
+    padding-block: 30px;
+
+    .user-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-name {
+        font-size: 1rem;
+    }
+
+    .logout-btn {
+        border: 1px solid $gray2;
+        border-radius: $small-br;
+        font-size: 0.875rem;
+        padding: 0.2em 0.4em;
+    }
+}
+
+.login-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-block: 50px;
+    border-bottom: 1px solid $gray2;
+    margin-inline: 15px;
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        input {
+            padding: 0.5em;
+        }
+
+        .signup-btn {
+            border: 1px solid $gray2;
+            border-radius: $small-br;
+            font-size: 0.875rem;
+            padding: 0.2em 0.4em;
+        }
+    }
+
+    .toggle-signup {
+        margin-top: 10px;
+        
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+
+            span {
+                color: $secondary-clr;
+            }
+        }
+    }
+}

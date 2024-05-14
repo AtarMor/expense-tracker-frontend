@@ -4,22 +4,29 @@ import { CategoriesChart } from "../cmps/CategoriesChart";
 import { SideBar } from "../cmps/SideBar";
 
 import { expenseService } from "../services/expense.service";
+import { useNavigate } from "react-router-dom";
 
-export function Dashboard() {
+export function Dashboard({ user, setUser }) {
     const [expenses, setExpenses] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [totalExpenses, setTotalExpenses] = useState(0)
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadExpenses()
-    }, [])
+    }, [user])
 
     async function loadExpenses() {
         try {
-            const expenses = await expenseService.query()
-            setExpenses(expenses)
-            const totalAmount = expenses.reduce((total, expense) => total + expense.amount, 0)
-            setTotalExpenses(totalAmount)
+            if (!user) {
+                setExpenses([])
+                navigate('/')
+            } else {
+                const expenses = await expenseService.query()
+                setExpenses(expenses)
+                const totalAmount = expenses.reduce((total, expense) => total + expense.amount, 0)
+                setTotalExpenses(totalAmount)
+            }
         } catch (err) {
             console.log('Cannot load expenses', err) // Add user msg
         } finally {
@@ -29,7 +36,7 @@ export function Dashboard() {
 
     if (isLoading) return <span className="loader"></span>
     return <section className="dashboard main-layout">
-        <SideBar />
+        <SideBar user={user} setUser={setUser} />
         <div className="dashboard-container">
             <div className="total-expenses">
                 <h2>{totalExpenses}$</h2>

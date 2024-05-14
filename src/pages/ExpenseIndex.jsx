@@ -5,19 +5,23 @@ import { Link } from "react-router-dom"
 import { ExpenseFilter } from "../cmps/ExpenseFilter"
 import { SideBar } from "../cmps/SideBar"
 
-export function ExpenseIndex() {
+export function ExpenseIndex({ user, setUser }) {
     const [expenses, setExpenses] = useState([])
     const [filterBy, setFilterBy] = useState(expenseService.getDefaultFilter())
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         loadExpenses()
-    }, [filterBy])
+    }, [filterBy, user])
 
     async function loadExpenses() {
         try {
-            const expenses = await expenseService.query(filterBy)
-            setExpenses(expenses)
+            if (!user) {
+                setExpenses([])
+            } else {
+                const expenses = await expenseService.query(filterBy)
+                setExpenses(expenses)
+            }
         } catch (err) {
             console.log('Cannot load expenses', err) // Add user msg
         } finally {
@@ -38,9 +42,9 @@ export function ExpenseIndex() {
 
     return <section className="expense-index main-layout">
 
-        <Link to={'/expense/edit/'}><button className="add-btn solid plus">Add</button></Link>
+        <Link to={'/expense/edit/'}><button disabled={!user} className="add-btn solid plus">Add</button></Link>
         <ExpenseFilter filterBy={filterBy} setFilterBy={setFilterBy} />
-        <SideBar />
+        <SideBar user={user} setUser={setUser} />
         <ExpenseList
             expenses={expenses}
             onRemoveExpense={onRemoveExpense}

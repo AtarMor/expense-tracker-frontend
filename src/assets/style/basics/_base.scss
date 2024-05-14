@@ -30,6 +30,11 @@ button {
   color: $main-font-clr;
 }
 
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed; 
+}
+
 img {
   max-width: 100%;
 }

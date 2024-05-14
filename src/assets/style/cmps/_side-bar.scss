@@ -2,28 +2,34 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    padding-block: 1em;
-    padding-inline-end: 1em;
     height: 100dvh;
 
     background-color: $secondary-bg-clr;
     border-radius: $big-br;
 
-    a {
-        padding: 0.5em 1em;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
+    .side-bar-nav {
+        display: flex;
+        flex-direction: column;
+        padding-inline-end: 1em;
+        padding-block: 30px;
 
-        button {
-            font-size: 1rem;
-            color: inherit;
+        a {
+            padding: 0.5em 1em;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+
+            button {
+                font-size: 1rem;
+                color: inherit;
+            }
+        }
+
+        a.active {
+            background-color: $secondary-clr;
+            color: $secondary-bg-clr;
         }
     }
 
-    a.active {
-        background-color: #648bf1;
-        color: $secondary-bg-clr;
-    }
 
     @include for-medium-layout {
         position: fixed;
