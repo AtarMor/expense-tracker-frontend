@@ -56,6 +56,7 @@ export function ExpenseEdit() {
                 <input type="number"
                     name="amount"
                     id="amount"
+                    min="0"
                     value={expenseToEdit.amount}
                     onChange={handleChange}
                 />
