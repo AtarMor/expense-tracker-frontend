@@ -22,35 +22,50 @@ export function ExpenseFilter({ filterBy, setFilterBy }) {
 
             <fieldset>
                 <legend>Filter By</legend>
+                
                 <div className="search-by-txt">
-                <label className="search solid magnifying-glass"></label>
-                <input
-                    type="text"
-                    name="txt"
-                    placeholder="Search"
-                    value={filterByToEdit.txt}
-                    onChange={handleChange}
-                    autoComplete="off"
-                />
+                    <label className="search solid magnifying-glass"></label>
+                    <input
+                        type="text"
+                        name="txt"
+                        placeholder="Search"
+                        value={filterByToEdit.txt}
+                        onChange={handleChange}
+                        autoComplete="off"
+                    />
                 </div>
 
-                <label htmlFor="category">Category</label>
-                <select
-                    id="category"
-                    name="category"
-                    value={filterByToEdit.category}
-                    onChange={handleChange}>
-                    <option></option>
-                    {categories.map(category => <option key={category}>{category}</option>)}
-                </select>
+                <div className="filter-layout">
+                    <label htmlFor="category">Category</label>
+                    <select
+                        id="category"
+                        name="category"
+                        value={filterByToEdit.category}
+                        onChange={handleChange}>
+                        <option></option>
+                        {categories.map(category => <option key={category}>{category}</option>)}
+                    </select>
+                </div>
 
-                <label htmlFor="startDate">From</label>
-                <input type="date"
-                    name="startDate"
-                    id="startDate"
-                    value={filterByToEdit.startDate}
-                    onChange={handleChange}
-                />
+                <div className="filter-layout">
+                    <label htmlFor="startDate">From</label>
+                    <input type="date"
+                        name="startDate"
+                        id="startDate"
+                        value={filterByToEdit.startDate}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="filter-layout">
+                    <label htmlFor="endDate">To</label>
+                    <input type="date"
+                        name="endDate"
+                        id="endDate"
+                        value={filterByToEdit.endDate}
+                        onChange={handleChange}
+                    />
+                </div>
             </fieldset>
 
         </section>

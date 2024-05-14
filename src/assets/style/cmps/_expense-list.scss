@@ -21,14 +21,6 @@
             grid-template-columns: repeat(4, minmax(auto, 1fr));
         }
 
-        @include for-small-layout {
-            grid-template-columns: repeat(4, minmax(70px, 1fr));
-        }
-
-        @include for-mobile-layout {
-            grid-template-columns: repeat(4, minmax(30px, 1fr));
-        }
-
         h3 {
             font-weight: bold;
             font-size: 0.875rem;

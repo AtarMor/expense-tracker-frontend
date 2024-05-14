@@ -3,8 +3,8 @@ import { ExpensePreview } from "./ExpensePreview"
 export function ExpenseList({ expenses, onRemoveExpense, isLoading }) {
     return <ul className="expense-list clean-list">
         <li className="expense-titles">
-            <h3>Category</h3>
             <h3>Date</h3>
+            <h3>Category</h3>
             <h3>Description</h3>
             <h3>Amount</h3>
         </li>

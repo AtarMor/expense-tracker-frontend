@@ -17,20 +17,31 @@
         border: 1px solid $gray2;
         font-size: 0.875rem;
 
-        @include for-small-layout {
+        >*{
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .filter-layout {
+            @include for-large-layout {
+                display: grid;
+                grid-template-columns: 60px 1fr;
+            }
+        }
+
+        @include for-large-layout {
             display: grid;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: 1fr 1fr;
         }
 
         @include for-mobile-layout {
-            display: grid;
             grid-template-columns: auto;
             width: 300px;
         }
 
         .search-by-txt {
             position: relative;
-            width: 100%;
 
             label {
                 position: absolute;
@@ -38,15 +49,12 @@
                 top: 0.4em;
                 color: $gray3;
             }
-
-            input {
-                width: 100%;
-            }
         }
 
         input,
         select {
             padding: 0.3em 0.6em;
+            width: 100%
         }
     }
 

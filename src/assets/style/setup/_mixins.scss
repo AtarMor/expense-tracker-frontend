@@ -1,4 +1,10 @@
 // Layout mixins
+@mixin for-large-layout {
+    @media (max-width: $break-large) {
+      @content;
+    }
+  }
+
 @mixin for-normal-layout {
     @media (max-width: $break-normal) {
       @content;

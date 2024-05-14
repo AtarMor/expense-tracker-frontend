@@ -2,7 +2,7 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    height: 100%;
 
     background-color: $secondary-bg-clr;
     border-radius: $big-br;
@@ -29,7 +29,6 @@
             color: $secondary-bg-clr;
         }
     }
-
 
     @include for-medium-layout {
         position: fixed;
