@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
-import { expenseService } from "../services/expense.service"
-import { ExpenseList } from "../cmps/ExpenseList"
 import { Link } from "react-router-dom"
+
+import { ExpenseList } from "../cmps/ExpenseList"
 import { ExpenseFilter } from "../cmps/ExpenseFilter"
 import { SideBar } from "../cmps/SideBar"
+
+import { expenseService } from "../services/expense.service"
 import { socketService, SOCKET_EMIT_REFRESH } from "../services/socket.service"
 
 export function ExpenseIndex({ user, setUser }) {

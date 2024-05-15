@@ -68,6 +68,8 @@
         }
 
         .months-chart {
+            display: flex;
+            justify-content: center;
             height: 500px;
             padding: 20px;
 

@@ -11,7 +11,6 @@ import {
 } from 'chart.js'
 import { utilService } from '../services/util.service'
 
-
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -43,7 +42,7 @@ export function MonthsChart({ expenses }) {
                 backgroundColor: 'rgba(255, 99, 132, 0.6)'
             },
         ],
-    };
+    }
 
     const options = {
         responsive: true,
