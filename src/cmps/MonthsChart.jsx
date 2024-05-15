@@ -28,8 +28,8 @@ export function MonthsChart({ expenses }) {
         const expenseDate = new Date(expense.date)
         if (expenseDate.getFullYear() === new Date().getFullYear()) {
             const month = expenseDate.getMonth()
-            const newSum = sums[month - 1] || 0 + expense.amount
-            sums[month - 1] = newSum
+            const newSum = sums[month] || 0 + expense.amount
+            sums[month] = newSum
         }
     })
 
